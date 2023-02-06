@@ -11,3 +11,8 @@ def solution(n, a, b):
     if a > b:
         a, b = b, a
     return find_rank(n, a, b)
+
+"""
+Using next to find the smallest i such that 2**i >= a and 2**i >= b is more efficient than using for loops and break statements. 
+And switching the order of a and b in the solution function before passing them to find_rank is a good idea to avoid redundant code.
+"""
