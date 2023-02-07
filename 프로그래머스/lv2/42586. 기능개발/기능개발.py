@@ -1,4 +1,3 @@
-"""
 def solution(progresses, speeds):
     answer = []
     while progresses:
@@ -27,7 +26,7 @@ def solution(progresses, speeds):
             answer.append(cnt)
             cnt = 0
     return answer
-
+"""
 
 
 
