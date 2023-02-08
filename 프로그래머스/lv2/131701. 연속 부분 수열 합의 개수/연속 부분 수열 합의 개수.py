@@ -1,3 +1,4 @@
+"""
 def solution(elements):
     elementLen = len(elements)
     elements = elements * 2
@@ -22,7 +23,7 @@ def solution(elements):
             numberSet.add(sum(elements[j:j+i+1]))
     answer = len(numberSet)
     return answer
-"""
+
 
 
 
