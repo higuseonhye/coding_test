@@ -9,7 +9,21 @@ def dfs(numbers, target, idx, sum_val):
 def solution(numbers, target):
     return dfs(numbers, target, 0, 0)
 
+"""
+DFS를 사용한 방법은 코드가 간단하고 이해하기 쉽지만, 많은 수의 타겟 넘버를 만드는 방법을 구할 때는 시간이 많이 걸릴 수 있습니다.
+"""
+"""
+- 이 코드는 깊이 우선 탐색(DFS) 알고리즘을 사용하여 "numbers" 배열에서 정수의 합이 "target"과 같은 경우의 수를 찾는 것입니다.
+- dfs 함수는 깊이 우선 탐색을 수행하기 위한 함수입니다. "numbers" 배열, "target" 값, 현재 탐색 위치 "idx", 현재 합 "sum_val"을 인자로 받습니다.
+- 만약 "idx"가 "numbers" 배열의 크기와 같다면, 타겟과 현재 합 "sum_val"이 같으면 1을 반환하고, 그렇지 않으면 0을 반환합니다.
+- 그렇지 않은 경우, "numbers" 배열에서 현재 "idx"에 해당하는 숫자를 더하거나 빼어 "dfs" 함수를 다시 호출하여 탐색을 수행합니다. 
+    두 번의 탐색 결과를 합하여 반환합니다.
+- solution 함수는 "numbers" 배열과 "target" 값을 인자로 받아 "dfs" 함수를 호출하여 결과 값을 반환합니다.
+"""
 
+
+"""
+비트 연산을 사용한 방법은 빠르게 타겟 넘버를 만드는 방법을 구할 수 있지만, 코드가 어렵고 이해하기 어렵다는 단점이 있습니다.
 """
 def dfs(numbers, target, i, sum, dp):
     if i == len(numbers):
@@ -29,4 +43,3 @@ def dfs(numbers, target, i, sum, dp):
 def solution(numbers, target):
     dp = [[-1 for j in range(2001)] for i in range(20)]
     return dfs(numbers, target, 0, 0, dp)
-"""
