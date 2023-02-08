@@ -1,10 +1,14 @@
 def solution(n, computers):
     def dfs(node, computers, visited):
-        visited[node] = True
-        for i, val in enumerate(computers[node]):
-            if val == 1 and not visited[i]:
-                dfs(i, computers, visited)
-                
+        stack = [node]
+        while stack:
+            node = stack.pop()
+            if not visited[node]:
+                visited[node] = True
+                for i, val in enumerate(computers[node]):
+                    if val == 1:
+                        stack.append(i)
+
     visited = [False for _ in range(n)]
     count = 0
     for i in range(n):
