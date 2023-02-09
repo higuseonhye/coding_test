@@ -17,5 +17,6 @@ def solution(begin, target, words):
                 if next_word in words:
                     q.append((next_word, step + 1))
                     words.remove(next_word)
+                    break
 
     return 0
