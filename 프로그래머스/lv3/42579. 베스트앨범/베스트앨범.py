@@ -23,3 +23,11 @@ def solution(genres, plays):
             answer.append(lst[i][0])
     # Return the answer
     return answer
+
+"""
+주어진 리스트에서 각 장르별 재생 횟수가 가장 많은 2개의 곡의 번호를 반환하는 함수
+1. 장르와 곡 번호, 재생 횟수를 담은 tuple의 list를 만든다.
+2. 장르별로 재생 횟수를 기준으로 내림차순으로 정렬한다.
+3. 각 장르별로 재생 횟수가 가장 많은 2개의 곡의 번호를 answer list에 담는다.
+4. answer list를 반환한다.
+"""
