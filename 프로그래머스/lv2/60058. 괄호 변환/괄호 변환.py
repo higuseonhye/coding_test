@@ -1,4 +1,4 @@
-def isRight(s):
+def is_valid(s):
     stack = 0
     for i in s:
         if i == '(':
@@ -19,10 +19,10 @@ def reverse(s):
     return ans
 
 def solution(p):
-    if p == '':         #1번
+    if p == '':         
         return ''
     
-    stack = 0         #2번
+    stack = 0         
     for i in range(len(p)):
         if p[i] == '(':
             stack += 1
@@ -33,7 +33,7 @@ def solution(p):
             v = p[i+1:]
             break
             
-    if isRight(u):         #3번
-        return u + solution(v)     #3-1번
-    else:        #4번
+    if is_valid(u):         
+        return u + solution(v)     
+    else:        
         return '(' + solution(v) + ')' + reverse(u[1:-1])
