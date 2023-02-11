@@ -1,20 +1,27 @@
 def solution(gems):
-    gem_types = len(set(gems))
+    gem_types = set(gems)
     gem_count = len(gems)
-    gem_dict = {gems[0]: 1}
-    solutions = []
+    type_count = len(gem_types)
+
+    current_shop = {gems[0]: 1}
+    candidates = []
     left_index, right_index = 0, 0
+
     while left_index < gem_count and right_index < gem_count:
-        if len(gem_dict) < gem_types:
+        if len(current_shop) < type_count:
             right_index += 1
             if right_index == gem_count:
                 break
-            gem_dict[gems[right_index]] = gem_dict.get(gems[right_index], 0) + 1
+            current_shop[gems[right_index]] = current_shop.get(gems[right_index], 0) + 1
         else:
-            solutions.append((right_index-left_index + 1, [left_index+1, right_index+1]))
-            gem_dict[gems[left_index]] -= 1
-            if gem_dict[gems[left_index]] == 0:
-                del gem_dict[gems[left_index]]
+            distance = right_index - left_index
+            candidate = [left_index + 1, right_index + 1]
+            candidates.append((distance, candidate))
+            current_shop[gems[left_index]] -= 1
+            if current_shop[gems[left_index]] == 0:
+                del current_shop[gems[left_index]]
             left_index += 1
-    solutions.sort(key=lambda x: (x[0], x[1]))
-    return solutions[0][1]
+
+    candidates.sort(key=lambda x: (x[0], x[1]))
+
+    return candidates[0][1]
