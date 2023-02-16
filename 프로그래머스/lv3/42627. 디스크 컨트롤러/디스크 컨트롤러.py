@@ -22,3 +22,11 @@ def solution(jobs):
             start_time = jobs[0][0]
 
     return answer // n
+
+
+"""
+The solution uses a heap to keep track of the jobs that are currently waiting to be processed. 
+It starts by sorting the jobs by their request time and then iterates through the list, 
+    adding jobs to the heap as they arrive and processing jobs in the heap as they become available. 
+The answer is calculated as the sum of the time it takes to complete each job divided by the number of jobs.
+"""
