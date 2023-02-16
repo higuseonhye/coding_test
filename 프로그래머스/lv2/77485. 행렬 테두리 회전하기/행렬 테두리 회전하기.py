@@ -43,3 +43,17 @@ def solution(rows, columns, queries):
         result.append(min_val)
 
     return result
+
+
+"""
+The solution function takes three arguments: rows, columns, and queries. 
+The rows and columns parameters represent the dimensions of the matrix, while the queries parameter is a list of queries that specify the submatrix to be rotated.
+
+The function first initializes the matrix with the given dimensions. 
+It then iterates through each query and performs the cyclic rotation on the submatrix defined by the query.
+
+For each query, the function uses four loops to rotate the top row, right column, bottom row, and left column of the submatrix. 
+The minimum value of the submatrix is also tracked during the rotation.
+
+After all queries have been processed, the function returns a list of the minimum values for each query.
+"""
