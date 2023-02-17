@@ -1,11 +1,9 @@
 from typing import List
 
-
 ROWS, COLS = 5, 5
 
-DC = [0, 0, -1, 1]  # directions for columns
-DR = [-1, 1, 0, 0]  # directions for rows
-
+DC = [0, 0, -1, 1]  
+DR = [-1, 1, 0, 0]  
 
 def solution(places: List[str]) -> List[int]:
     ans = []
@@ -19,7 +17,6 @@ def solution(places: List[str]) -> List[int]:
         ans.append(int(is_distancing))
     return ans
 
-
 def is_distanced(place: str, candidate: tuple, depth: int = 0, visited: List[List[bool]] = None) -> bool:
     if depth > 2:
         return True
@@ -29,25 +26,23 @@ def is_distanced(place: str, candidate: tuple, depth: int = 0, visited: List[Lis
     
     r_idx, c_idx = candidate
     
-    if r_idx < 0 or r_idx >= ROWS or c_idx < 0 or c_idx >= COLS:  # Ignore: Out of index
+    if r_idx < 0 or r_idx >= ROWS or c_idx < 0 or c_idx >= COLS:
         return True
-    if visited[r_idx][c_idx]:  # Ignore: Already visited node
+    if visited[r_idx][c_idx]:
         return True
-    if place[r_idx][c_idx] == 'X':  # Ignore: 'X'(파티션)
+    if place[r_idx][c_idx] == 'X':
         return True
     
-    # There is a person within 2 seats, thus fail
     if depth != 0 and place[r_idx][c_idx] == 'P':
         return False
             
     visited[r_idx][c_idx] = True
-    for d_idx in range(4):  # directions: up, down, left, right
+    for d_idx in range(4):
         r = r_idx + DR[d_idx]
         c = c_idx + DC[d_idx]
         if not is_distanced(place, (r, c), depth=depth+1, visited=visited):
             return False
     return True
-
 
 def get_candidates(place: str) -> List[tuple]:
     candidates = []
