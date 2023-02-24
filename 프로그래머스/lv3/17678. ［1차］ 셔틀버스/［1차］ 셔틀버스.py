@@ -25,3 +25,21 @@ def solution(n, t, m, timetable):
         bus_time += t
     
     return None  # should never get here
+
+"""
+First, we convert the timetable to minutes for easier processing. 
+- We also sort the timetable in ascending order.
+
+Then, we initialize variables for the first bus time and the last person's arrival time.
+
+We loop through each bus and check how many people can get on the bus. 
+- We keep track of the last person's arrival time as we iterate through the timetable.
+
+If it's the last bus, we can take any available seat. 
+- If there are no available seats, we return the last person's arrival time minus one minute (to ensure that we're not late). 
+- Otherwise, we return the bus time.
+
+If we haven't returned anything by the end of the loop, we return None (which should never happen).
+
+Note: We use the %02d:%02d format string to ensure that the output has leading zeros for single-digit hours and minutes.
+"""
